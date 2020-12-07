@@ -1,0 +1,7 @@
+{
+  "name": "AoC-PrivBoard",
+  "description": "A simple Node.js to display a private leaderboard for Advent of Code",
+  "repository": "https://github.com/Roslund/AoC-PrivBoard",
+  "keywords": ["node", "express", "heroku", "aoc", "adventofcode"],
+  "image": "heroku/nodejs"
+}
