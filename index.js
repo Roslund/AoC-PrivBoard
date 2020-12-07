@@ -48,7 +48,7 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   if (new Date().getTime() - lastUpdated >= 600000) { updateLeaderboard() }
   console.log('Updating leaderboard')
-  res.render('pages/index', { leaderboard: leaderboard })
+  res.render('index', { leaderboard: leaderboard })
 })
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
