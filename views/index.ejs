@@ -44,7 +44,7 @@
                 <% } else { %>
                 <td><span class="privboard-star-unlocked">*</span></td>
                 <% }}} %>
-                <td style='padding-left: 10px;'><%= member.name ?? "(anonymous user #"+member.id+")" %></td>
+                <td style='padding-left: 10px;'><%= namemapping(member.id) ?? member.name ?? "(anonymous user #"+member.id+")" %></td>
             <tr>
               <% } %>
       </article>
