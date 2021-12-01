@@ -1,0 +1,37 @@
+<%
+  const members = Object.values(leaderboard.members)
+    .sort((a, b) => (a.local_score > b.local_score) ? -1 : 1)
+
+  const today = new Date(Date.now()).getDate()
+%>
+<table cellspacing="0" cellpadding="0">
+    <tr>
+      <th></th>
+      <%  for (var day = 1; day <= 25; day++) {
+        let string = day.toString()
+        if (day > 9) { string = string[0]+'<br>'+string[1] } else { string = '<br>'+string }
+        let daystate = (day > today) ? "privboard-day-locked" : "privboard-day-unlocked"
+      %>
+      <th class="<%= daystate %>"><%- string %></th>
+      <% } %>
+    </tr>
+
+    <%  for (const member of members) { %>
+    <tr>
+      <td class=leaderboard-score><%= member.local_score %></td>
+      <%  for (var day = 1; day <= 25; day++) { 
+      if (typeof member.completion_day_level[day] !== 'undefined') {
+        if (typeof member.completion_day_level[day]["2"] !== 'undefined') { %>
+          <td><span class="privboard-star-both">*</span></td>
+        <% } else {%>
+          <td><span class="privboard-star-firstonly">*</span></td>
+          <% }} else {
+          if (day > today) { %>
+          <td><span class="privboard-star-locked">*</span></td>
+          <% } else { %>
+          <td><span class="privboard-star-unlocked">*</span></td>
+          <% }}} %>
+          <td style='padding-left: 10px;'><%= namemapping(member.id) ?? member.name ?? "(anonymous user #"+member.id+")" %></td>
+        </tr>
+        <% } %>
+  </table>

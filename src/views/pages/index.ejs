@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/head.ejs %>
+
+  <body>
+    <% include ../partials/nav.ejs %>
+    <main>
+      <article>
+        <% include ../partials/information.ejs %>
+        <h2><%= process.env.TITLE || "Leaderboard" %></h2>
+        <% include ../partials/leaderboard.ejs %>
+      </article>
+    </main>
+  </body>
+
+
+</html>
