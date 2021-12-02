@@ -12,6 +12,7 @@ const namemapping = (id) => {
     case '1159859': return 'Jonas Tano'
     case '1159859': return 'Jimmy Wimmersjö'
     case '1111749': return 'Jakob Huss'
+    case '1554332': return 'Jan-Erik Kitok'
     default: return null
   }
 }
