@@ -24,6 +24,7 @@ export function update(foryear) {
         results = results + chunk;
       }); 
       res.on('end', function () {
+        console.log(results)
         year[foryear] = JSON.parse(results)
       }); 
     });
