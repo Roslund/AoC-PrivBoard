@@ -1,4 +1,9 @@
 <%
+if (leaderboard == null || Object.keys(leaderboard).length === 0) {
+  %>
+  <h1>Fetching data, please refresh the page</h1>
+  <%
+} else {
   const members = Object.values(leaderboard.members)
     .sort((a, b) => (a.local_score > b.local_score) ? -1 : 1)
 
@@ -35,3 +40,4 @@
         </tr>
         <% } %>
   </table>
+<% } %>

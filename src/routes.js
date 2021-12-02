@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { year, update, lastUpdated } from './leaderboard.js'
+import { year, update  } from './leaderboard.js'
 
 
 const namemapping = (id) => {
@@ -19,26 +19,27 @@ const namemapping = (id) => {
 export default () => {
   const app = Router();
 
-  update('2021') 
-  update('2020') 
 
   app.get('/', (req, res) => {
-    //Only update when every minute
-    if (new Date().getTime() - lastUpdated >= 600000) { 
-      update('2021') 
-    }
-  
+    update('2021') 
     res.render('pages/index', { leaderboard: year['2021'], namemapping: namemapping })
   })
 
   app.get('/2020', (req, res) => {
-    //Only update when every minute
-    if (new Date().getTime() - lastUpdated >= 600000) { 
-      update('2020') 
-    }
-  
+    update('2020') 
     res.render('pages/index', { leaderboard: year['2020'], namemapping: namemapping })
+  })
+
+  app.get('/2019', (req, res) => {
+    update('2019') 
+    res.render('pages/index', { leaderboard: year['2019'], namemapping: namemapping })
+  })
+
+  app.get('/2018', (req, res) => {
+    update('2018') 
+    res.render('pages/index', { leaderboard: year['2018'], namemapping: namemapping })
   })
   
   return app
 }
+
