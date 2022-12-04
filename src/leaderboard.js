@@ -14,9 +14,12 @@ export function update(foryear) {
       port: 443,
       path: `/${foryear}/leaderboard/private/view/402019.json`,
       method: 'GET',
-      headers: {'Cookie': cookie}
+      headers: {
+        'Cookie': cookie,
+        'User-Agent': 'github.com/Roslund/AoC-PrivBoard by anton@roslund.nu'
+      }
     }
-
+    
     var results = '';
 
     var req = https.request(options, function(res) {
